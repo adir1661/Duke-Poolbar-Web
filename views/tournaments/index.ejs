@@ -1,50 +1,51 @@
 <% include ../partials/header %>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet" href="stylesheet/tournaments.css">
 <% include ../partials/navbar %>
-<style>
-    .tournament{
-        text-align:center;
-    }
-    h3{
-        margin-bottom:25px;
-        margin-top:25px;
-    }
-    .game{
-        margin:5px 0;
-    }
-    .games{
-        margin-bottom:40px;
-    }
-    .right-span{
-        width:100px;
-        float:right;
-    }
-    .left-span{
-        width:100px;
-        float:left;
-    }
-</style>
 <div class="container">
     <div class="row">
-        <% tournaments.forEach(function(tournament){%>
-            <a href="/tournaments/<%=tournament._id%>">
-                <div class="col-md-3 tournament">
-                    <div class ="thumbnail">
-                        <h3><%=tournament.name%></h3>
+        <% tournaments.forEach(function(tournament){ %>
+
+            <div class="col-md-3 tournament">
+                <a href="/tournaments/<%= tournament._id %>">
+                    <div class="thumbnail">
+                        <span class="dot pull-left done"></span>
+                        <h3 class="tournament-title"><%= tournament.name %></h3>
                         <hr>
-                        <div class = "games">
-                            <% if(tournament.rounds[0]){tournament.rounds[0].games.forEach(function(game){%>
-                                <div class="game"><span class="left-span"><%=game.player1.name%></span>Vs.<span class="right-span"><%=game.player2.name%></span></div>
-                            <%})}else{%>
+                        <div class="games">
+                            <% if(tournament.rounds[0]){tournament.rounds[0].games.forEach(function(game){ %>
+                                <div class="game"><span class="left-span"><%= game.player1.name %></span>Vs.<span
+                                            class="right-span"><%= game.player2.name %></span></div>
+                            <% })}else{ %>
                                 <div class="filler">
-                                    <h3> players not yet registered to this tournament ....</h3>
+                                    <h3>בתהליך הרשמה...</h3>
                                 </div>
-                            <%}%>
+                            <% } %>
                         </div>
-                        
+
                     </div>
+                </a>
+            </div>
+
+        <% }); %>
+        <div class="col-md-3 tournament">
+            <a href="/tournaments/new">
+                <div class="thumbnail ">
+                    <span class="dot pull-left add"></span>
+                    <h3 class="tournament-title">הוסף תחרות חדשה</h3>
+                    <hr>
+                    <div class="games">
+                        <div class="filler">
+                            <h4>לחץ פה כדי להוסיף תחרות למערכת...</h4>
+                            <i class="fas fa-plus add-tournament"></i>
+                        </div>
+                    </div>
+
                 </div>
             </a>
-        <%});%>
+        </div>
+        </a>
     </div><!--row-->
 </div>
 
