@@ -1,0 +1,56 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+.img-container{
+    position: relative;
+    width: 310px;
+    height: 310px;
+    overflow: hidden;
+}
+.image-crop {
+    display: none;
+}
+.image-resize {
+    margin-bottom: 10%;
+}
+@media only screen and (min-width: 768px) {
+    .image-resize{
+        margin-bottom: 20px;
+    }
+}
+
+div.img-container{
+    background-color: #00e600;
+    text-align: center;
+}
+div.img-container img{
+    opacity: 1;
+}
+div.img-container:hover img{
+    opacity:0.5;
+    /*transition:opacity 0.5s 0 ;*/
+    filter: grayscale(100%);
+    transform: scale(1.05);
+
+}
+div.img-container *{
+    transition:all 0.3s ease-in;
+}
+
+div.img-container i {
+    transition:transform 300ms 100ms ease-out;
+    transform: translate(-50%,-50%) scale(0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    font-size: 34px;
+    color: #008000;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+}
+div.img-container:hover i{
+    transform: translate(-50%,-50%) scale(1);
+    transition:transform 300ms 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

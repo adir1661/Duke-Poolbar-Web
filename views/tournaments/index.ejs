@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<style>
+    .tournament{
+        text-align:center;
+    }
+    h3{
+        margin-bottom:25px;
+        margin-top:25px;
+    }
+    .game{
+        margin:5px 0;
+    }
+    .games{
+        margin-bottom:40px;
+    }
+    .right-span{
+        width:100px;
+        float:right;
+    }
+    .left-span{
+        width:100px;
+        float:left;
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <% tournaments.forEach(function(tournament){%>
+            <a href="/tournaments/<%=tournament._id%>">
+                <div class="col-md-3 tournament">
+                    <div class ="thumbnail">
+                        <h3><%=tournament.name%></h3>
+                        <hr>
+                        <div class = "games">
+                            <% if(tournament.rounds[0]){tournament.rounds[0].games.forEach(function(game){%>
+                                <div class="game"><span class="left-span"><%=game.player1.name%></span>Vs.<span class="right-span"><%=game.player2.name%></span></div>
+                            <%})}else{%>
+                                <div class="filler">
+                                    <h3> players not yet registered to this tournament ....</h3>
+                                </div>
+                            <%}%>
+                        </div>
+                        
+                    </div>
+                </div>
+            </a>
+        <%});%>
+    </div><!--row-->
+</div>
+
+<% include ../partials/footer %>

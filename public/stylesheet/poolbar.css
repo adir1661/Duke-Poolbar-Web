@@ -1,0 +1,113 @@
+html{
+    height :100%;
+    width: 100%;
+    background-color: black;
+
+}
+body{
+    background: /*white;*/ url(/images/snooker_balls.jpg) 0 0 no-repeat;
+    min-height: fit-content;
+    height: 100%;
+    background-size: cover;
+    background-position-y: bottom;
+    background-position-x: center;
+    text-align: right;
+    padding-top:80px;
+}
+.navbar{
+    border: 0 solid transparent;
+}
+.container{
+}
+.navbar-default{
+    background: #303030;
+
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background: #559436df;
+    /*color: rgb(235, 235, 236);*/
+    color:#303030;
+    text-shadow: 0 1px 3px rgba(255,255,255,0.15),0 2px 6px rgba(255,255,255,0.1);
+
+}
+.navbar-default .navbar-nav>li>a{
+    color: #559436;
+    font-size: 20px;
+
+}
+.navbar-default .navbar-brand{
+    font-size: 25px;
+    color: rgb(230,40,40);
+    text-shadow: rgba(255,255,255,0.2) 0px 0px 4px,
+    rgba(255,255,255,0.2) 0 0.5px 8px;
+    ;
+}
+.navbar-default{
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+    box-shadow: rgba(0,0,0,0.8) 2px 0 5px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: hillel, serif;
+    direction: rtl;
+}
+@font-face {
+    font-family: 'hillel';
+    src: url("/fonts/hillelclm-medium-webfont.woff")format('woff'),
+    url("/fonts/hillelclm-medium-webfont.ttf")format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+p, h1{
+    font-family: hillel;
+    direction: rtl;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    transition: 0.3s;
+    background: #55943640;
+    color: #559436;
+}
+.navbar-right{
+    direction: rtl;
+}
+.jumbotron{
+    background-color: #ffffffe0;
+}
+.glyphicon-picture{
+}
+.navbar-toggle{
+
+    border: none;
+}
+
+.navbar-header .navbar-toggle .icon-bar{
+    width: 33px;
+    height: 3px;
+}
+.navbar-header .navbar-toggle .icon-bar+.icon-bar {
+    margin-top: 6px;
+
+}
+.navbar-default .navbar-toggle .icon-bar{
+background-color: rgba(255,255,255,0.8);
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    transition: 0.3s;
+    background-color: rgba(255,255,255,0.1);
+}
+.container-fluid .icon-container{
+    float: right;
+}
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand{
+    margin-left: 0;
+}
+.navbar-nav>li>.iconed {
+    padding-top: 11.7px;
+    padding-bottom: 13.5px;
+}
+.thumbnail{
+
+}
+
+

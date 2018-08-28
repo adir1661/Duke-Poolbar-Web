@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<div class="container ">7
+<style>
+     .jumbotron{
+        float:none;
+        text-align:center;
+    }
+    .col-md-4{
+    }
+</style>
+    <div class = "container">
+        <form method="post" action="/tournaments">
+            <div class = row>
+                <div class = "col-md-4 col-xs-12 col-md-offset-4 ">
+                    <div class = "jumbotron">
+                    <div class ="form-group">
+                        <h2>הוסף תחרות למערכת</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">שם</label>
+                        <input id="name" class="form-control" type="text" name="tournament[name]" placeholder="תחרות ארצית" title="נא הכנס שם לתחרות" >
+                    </div><!---form-group--->
+                    <div class=" form-group">
+                        <label for="numberOfPlayers">מספר שחקנים</label>
+                        <input class="form-control" id="numberOfPlayers" type="number"name="tournament[numberOfPlayers]" placeholder="16" title="נא הכנס כמות שחקים מרבי שישתתפו בתחרות הנוכחית" >
+                    </div><!---form-group--->
+                    <div class="form-group">
+                        <label for="date">תאריך התחלת תחרות</label>
+                        <input class="form-control" id="date" type="date" name="tournament[date]" title="תאריך לתחרות" >
+                    </div><!---form-group--->
+                    <div class="form-group">
+                        <button style="direction: rtl;" class ="btn btn-warning btn-md">הוסף!</button>
+                    </div>
+                    </div>
+                </div>
+            </div><!--  row -->
+        </form>
+    </div>
+            
+</div>
+<% include ../partials/footer %>

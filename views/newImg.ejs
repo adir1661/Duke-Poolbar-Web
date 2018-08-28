@@ -1,0 +1,16 @@
+<% include partials/header%>
+<% include partials/navbar%>
+<div class ="container">
+    <div class = "jumbotron">
+        <h1>רשום תחרות חדשה! </h1>
+        <form style="float:right" method ="post" action="/gallery">
+            <input type="text" placeholder = "שם לתחרות" name ="name">
+            <input type="number" placeholder = "שחקנים" name="numberOfPlayers">
+            <button class = "btn btn-lg-default">הוסף תחרות</button>
+        </form>
+    </div>
+</div>
+
+
+<% include partials/footer%>
+
