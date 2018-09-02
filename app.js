@@ -52,8 +52,7 @@ app.get("/",function(req,res){
 routers.forEach(function(obj){
     app.use(obj.url,obj.router);
 });
-
 // console.log("----------------------------------------------",process.env.PORT,process.env.IP);
-app.listen(3001,function(){
-    console.log('Server is Listening!');
+app.listen(process.env.PORT,process.env.IP,function(){
+    console.log('Server is Listening! PORT:',process.env.PORT);
 });

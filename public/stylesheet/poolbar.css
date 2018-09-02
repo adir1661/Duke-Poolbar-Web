@@ -5,8 +5,10 @@ html{
 
 }
 body{
-    background: /*white;*/ url(/images/snooker_balls.jpg) 0 0 no-repeat;
+    /*background: !*white;*! url(/images/snooker_balls.jpg) 0 0 no-repeat;*/
+    background-color: #ccccb3;
     min-height: fit-content;
+
     height: 100%;
     background-size: cover;
     background-position-y: bottom;

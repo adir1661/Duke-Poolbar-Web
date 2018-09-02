@@ -3,9 +3,10 @@ var mongoose = require("mongoose"),
 mongoose.connect("mongodb://localhost/poolbar");
 
 var userSchema = new mongoose.Schema({
-   name: String,
-   username:String,
-   password: String
+    name: String,
+    username:String,
+    password: String,
+    role: String
 });
 userSchema.plugin(passportLocalMongoose);
 

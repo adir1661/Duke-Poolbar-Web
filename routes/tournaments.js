@@ -18,7 +18,7 @@ router.get("/",function(req,res){
         res.render("tournaments/index",{tournaments:foundTournaments}); 
     });
 });
-router.post("/",function(req,res){
+router.post("/",middleware.checkAdmin,function(req,res){
     var tournament =req.body.tournament;
     tournament.date = new Date(tournament.date);
     var newTournament = new Tournament(tournament);
@@ -28,13 +28,13 @@ router.post("/",function(req,res){
         res.redirect("/tournaments");
     })
 });
-router.delete("/:id",function(req,res){
+router.delete("/:id",middleware.checkAdmin,function(req,res){
     Tournament.findByIdAndRemove(req.params.id,function(err){
         if(err)return handleError(err);
         res.redirect("/tournaments");
     });
 });
-router.get("/new",function(req, res) {
+router.get("/new",middleware.checkAdmin,function(req, res) {
     res.render("tournaments/new");
 });
 router.get("/:id", function(req, res) {

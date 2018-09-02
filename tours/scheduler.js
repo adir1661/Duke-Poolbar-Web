@@ -7,6 +7,8 @@ var util        = require('util'),
     seedDB      = require("./seed");    
 function runTour(){
     seedDB(renderTour);
+    // Tournament.findOne
+    // renderTour()
 }
 function log(myObject){
     console.log(util.inspect(myObject, {showHidden: false, depth: null}))
@@ -195,8 +197,25 @@ function handleError(err){
 // console.log(' lets start: ');
 // renderTour(16);
 // exports.render =renderTour;
-exports.seedDB = runTour;
-
+exports.seedDB = function () {
+    console.log("seedDB");
+};//runTour;
+function exportWinner() {
+    Tournament.findOne({}).populate({
+        path:"rounds",
+        populate: { path: 'games',
+            populate:[{path:'player1'},{path:'player2'}]}    }).exec(function (err, foundTour) {
+        if (err) return handleError(err);
+        var final = foundTour.rounds[foundTour.rounds.length-1].games[0];
+        if(final.winner===0){
+            exports.winner = final.player1.name;
+        }else if (final.winner===1){
+            exports.winner = final.player2.name;
+        }
+        console.log("winner exported");
+        })
+}
+exportWinner()
 // console.log(competition);
 // console.log(tournament);
 // log(competition.rounds[0]);

@@ -3,8 +3,6 @@ var util        = require('util'),
     Round       = require("../models/round"),
     Game        = require("../models/game"),
     User        = require("../models/user");
-    
-
 var players = ['yarin','adir','itamar','david','michael','jambiko','moshiko','moti','asaf','ori','tomer','aba','vivi','roi','sagi levi','moshe-chaim'];// renderPlayers(num) 
 var playersTmp =[];
     players.forEach(function(player) {
@@ -30,7 +28,16 @@ function removeUsers(tournament,cb){
         if(err){
             console.log(err);
         }else{
-            return cb()
+            var newUser = new User({
+                username: "admin",
+                name:"admin",
+                role: process.env.ADMIN
+            });
+
+            User.register(newUser,"lubilubi321",function(err,user) {
+                if (err) return handleError(err);
+                return cb();
+            })
         }
     })
 }
@@ -40,8 +47,10 @@ function addNewUsersToTournament(tournament,cb){
         var j = i++;
         var newUser = new User({
             username: playerName+"1551@gmail.com",
-            name:playerName
+            name:playerName,
+            role: process.env.USER
         });
+
         User.register(newUser,"1234",function(err,user){
             if (err){
                 console.log(err);

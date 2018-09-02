@@ -9,9 +9,14 @@ middlewareObj.isLoggedIn =  function(req,res,next){
 }
 middlewareObj.checkAdmin = function(req,res,next){
     if(req.isAuthenticated()){
-        return  next(); 
+        if (req.user.role ===process.env.ADMIN) {
+            return  next();
+        }else{
+            res.redirect("back");
+        }
+    }else{
+        res.redirect("/login");
     }
-    res.redirect("/login");
 }
 
 module.exports = middlewareObj;
