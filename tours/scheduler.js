@@ -197,9 +197,9 @@ function handleError(err){
 // console.log(' lets start: ');
 // renderTour(16);
 // exports.render =renderTour;
-exports.seedDB = function () {
-    console.log("seedDB");
-};//runTour;
+exports.seedDB = runTour// function () {
+   // console.log("seedDB");
+//};//runTour;
 function exportWinner() {
     Tournament.findOne({}).populate({
         path:"rounds",
@@ -215,7 +215,7 @@ function exportWinner() {
         console.log("winner exported");
         })
 }
-exportWinner()
+//exportWinner()
 // console.log(competition);
 // console.log(tournament);
 // log(competition.rounds[0]);

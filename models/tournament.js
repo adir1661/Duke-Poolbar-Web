@@ -4,7 +4,10 @@ mongoose.connect("mongodb://localhost/poolbar");
 var tournamentSchema = new mongoose.Schema({
    name: String,
    numberOfPlayers:String,
-   date: Date,
+   date: {
+       type: Date,
+       default: Date.now()
+   },
    state: String,
    players: [{
        type:mongoose.Schema.Types.ObjectId,
@@ -19,7 +22,7 @@ tournamentSchema.methods.findLevel = function(){
     return Math.log(this.numberOfPlayers)/Math.log(2);
 }
 tournamentSchema.methods.isFull = function(){
-    return this.numberOfPlayers>=this.players.length;
+    return this.numberOfPlayers<=this.players.length;
 }
 tournamentSchema.methods.addPlayer = function(id){
     if(this.players.length<this.numberOfPlayers){

@@ -14,8 +14,8 @@ var express           = require("express"),
     middleware        = require("./middleware"),
     routers           = require("./routes");
 Scheduler.seedDB();    
-
-mongoose.connect("mongodb://localhost:27017/poolbar",{useNewUrlParser: true});
+//"mongodb://localhost:27017/poolbar"
+mongoose.connect(/*"mongodb://localhost:27017/poolbar"*/process.env.DATABASE,{useNewUrlParser: true});
 app.use(express.static(__dirname+"/public"));
 app.set("view engine","ejs");
 app.use(bodyParser.urlencoded({extended: true}));
